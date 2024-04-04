@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 app_name = 'car'
 
 urlpatterns = [
@@ -14,4 +16,4 @@ urlpatterns = [
 
     #detalhes de todos carros
     path('detailall/', views.car_all_detail, name='car_all_detail'),
-]
+] 

@@ -2,35 +2,21 @@
 
 {% block content %}
 
-<!--
-<div class="col-md-3 mb-4">
-    <div class="card">
-        <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
-        
-        <div class="card-body">
-         
-            <h5 class="card-title">{{ car.car_name }}</h5>
-            <p class="card-text">Marca: {{ car.brand }}</p>
-            <p class="card-text">Preço: R$ {{ car.price }}</p>
-            <a href="https://api.whatsapp.com/send?phone={{ car.whatsapp }}" class="btn btn-success" target="_blank">Contato via WhatsApp</a>
-           
-        
-          </div>
-        
-    </div>
-</div>
 
--->
-<!-- car_all_detail.html -->
 
-<!-- car_all_detail.html -->
 
 <div class="container mt-5">
     <div class="row">
         {% for single_car in car %}
+        <!--for para percorrer a lista dos carros cadastrados-->
             <div class="col-md-3 mb-4">
                 <div class="card">
-                    <img src="{{ single_car.image.url }}" class="card-img-top" alt="{{ single_car.car_name }}">
+                    <!--Imagem de cada carro-->
+                    
+                   
+                    <img src="{{ single_car.image.url }}"  width="246" height="150">
+                
+                 
                     <div class="card-body">
                         <h5 class="card-title">{{ single_car.car_name }}</h5>
                         <p class="card-text">Marca: {{ single_car.brand }}</p>
@@ -42,8 +28,6 @@
         {% endfor %}
     </div>
 </div>
-
-
-               
+      
 
 {% endblock %}
