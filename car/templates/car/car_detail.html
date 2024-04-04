@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h2>{{ car.car_name }}</h2>
+<p>WhatsApp: {{ car.whatsapp }}</p>
+<p>Marca: {{ car.brand }}</p>
+<p>KM: {{ car.km }}</p>
+<p>Preço: {{ car.price }}</p>
+<p>Placa: {{ car.license_plate }}</p>
+<p>Local: {{ car.location }}</p>
+<p>Status: {{ car.get_status_display }}</p>
+{% if car.image %}
+  <img src="{{ car.image.url }}" alt="{{ car.car_name }}">
+{% endif %}
+
+
+               
+
+{% endblock %}

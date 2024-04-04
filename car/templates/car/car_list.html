@@ -1,0 +1,43 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Lista de Carros</h2>
+  <a href="{% url 'car:car_new' %}" class="btn btn-primary mb-3">Novo Carro</a>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Proprietário</th>
+          <th>WhatsApp</th>
+          <th>Nome do Carro</th>
+          <th>Marca</th>
+          <th>KM</th>
+          <th>Preço</th>
+          <th>Placa</th>
+          <th>Local</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in cars %}
+          <tr>
+            <td>{{ car.owner_name }}</td>
+            <td>{{ car.whatsapp }}</td>
+            <td>{{ car.car_name }}</td>
+            <td>{{ car.brand }}</td>
+            <td>{{ car.km }}</td>
+            <td>{{ car.price }}</td>
+            <td>{{ car.license_plate }}</td>
+            <td>{{ car.location }}</td>
+            <td>{{ car.get_status_display }}</td>
+            <td>
+              <a href="{% url 'car:car_edit' car.id %}" class="btn btn-secondary">Editar</a>
+              <a href="{% url 'car:car_delete' car.id %}" class="btn btn-danger">Excluir</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
