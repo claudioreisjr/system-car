@@ -2,11 +2,14 @@
 
 {% block content %}
 
-
+<!--configuracao para real ponto e virgula , e settings-->
+{% load l10n %}
 
 
 <div class="container mt-5">
     <div class="row">
+    
+
         {% for single_car in car %}
         <!--for para percorrer a lista dos carros cadastrados-->
             <div class="col-md-3 mb-4">
@@ -20,14 +23,24 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ single_car.car_name }}</h5>
                         <p class="card-text">Marca: {{ single_car.brand }}</p>
-                        <p class="card-text">Preço: R$ {{ single_car.price }}</p>
+                        <!--preço formatado-->
+                        <p class="card-text">Preço: R$ {{ single_car.price|floatformat:2|localize }}</p>
+                        <!--botao whatsapp-->
                         <a href="https://api.whatsapp.com/send?phone={{ single_car.whatsapp }}" class="btn btn-success" target="_blank">Contato via WhatsApp</a>
+                        <br>
+                        
+                        <!--botao ver detalhes carro-->
+                        <a href="/car/detail/{{ single_car.id }}" class="btn btn-danger" target="_blank">Ver Detalhes</a>
+
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
 </div>
-      
+
+
+
 
 {% endblock %}
