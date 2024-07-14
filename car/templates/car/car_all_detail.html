@@ -1,14 +1,16 @@
 {% extends 'base_generic.html' %}
-
 {% block content %}
-
 <!--configuracao para real ponto e virgula , e settings-->
 {% load l10n %}
+<!--carrega pasta static-->
+{% load static %}
 
+
+<!--importar o css-->
+<link rel="stylesheet" href="{% static 'car/css/styles.css' %}">
 
 <div class="container mt-5">
     <div class="row">
-    
 
         {% for single_car in car %}
         <!--for para percorrer a lista dos carros cadastrados-->
@@ -27,10 +29,12 @@
                         <p class="card-text">Preço: R$ {{ single_car.price|floatformat:2|localize }}</p>
                         <!--botao whatsapp-->
                         <a href="https://api.whatsapp.com/send?phone={{ single_car.whatsapp }}" class="btn btn-success" target="_blank">Contato via WhatsApp</a>
-                        <br>
+                     
                         
                         <!--botao ver detalhes carro-->
-                        <a href="/car/detail/{{ single_car.id }}" class="btn btn-danger" target="_blank">Ver Detalhes</a>
+                        <a href="/car/detail/{{ single_car.id }}" class="btn btn-danger btn-detail">Ver Detalhes</a>
+
+
 
                     </div>
                 </div>

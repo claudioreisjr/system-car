@@ -1,10 +1,17 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Projeto Django</title>
+    <title>Lavras CAR</title>
     <!-- Adicione aqui a referência ao CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--css
+    <link rel="stylesheet"  href="{static/css/styles.css'}">
+    -->
 
 
     <style>
@@ -21,14 +28,14 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Meu Projeto Django</a>
+        <a class="navbar-brand" href="#">Lavras CAR</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/car">Home</a>
+                    <a class="nav-link" href="/car">Início</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/car/detailall">Carros</a>

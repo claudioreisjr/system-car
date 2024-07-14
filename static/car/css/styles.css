@@ -1,0 +1,7 @@
+/* static/car/css/styles.css */
+.btn-detail {
+    display: auto;
+    margin: 3px auto 0; /* Espaço superior de 20px e centralizado horizontalmente */
+    width: 180px; /* Definir a largura desejada */
+    text-align: center; /* Centralizar o texto dentro do botão */
+}
