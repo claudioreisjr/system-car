@@ -1,10 +1,16 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-<h2>Cadastre seu Veículo, nós vendemos pra você!</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary mt-3">Salvar</button>
-</form>
+{% if user.is_authenticated %}
+    <h3>Bem Vindo, {{ user.username }}!</h3>
+    <h4>Cadastre seu Veículo, nós vendemos pra você!</h4>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+    </form>
+{% else %}
+   
+    <p>Você precisa estar logado para acessar esta página. <a href="../usuarios/login/">Faça login aqui</a>.</p>
+{% endif %}
 {% endblock %}

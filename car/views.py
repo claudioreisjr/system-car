@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Car
 from .forms import CarForm, CarFormWithoutStatus
 from django.http import HttpResponse
+#para bloquear pagina somente se estiver logado
+from django.contrib.auth.decorators import login_required
 
+
+#teste de tabela Vendidos
 from .models import Vendidos
 
 # Create your views here.
@@ -26,6 +30,8 @@ def car_new(request):
 
 
 #Cadastro carro sem status para usuario, pq status ativo por padrao
+#AUTENTICAÇÃO USUARIO NORMAL CLIENTE
+@login_required
 def cadastrar_carro_sem_status(request):
     if request.method == 'POST':
         form = CarFormWithoutStatus(request.POST, request.FILES)
