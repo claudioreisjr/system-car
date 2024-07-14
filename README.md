@@ -5,6 +5,9 @@ Banco de Dados: MySQL, tabelas relacionais<br>
 
 
 # Servidor: XAMPP para Windows, Apache, MySQL<br>
+```sh
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
+```
 Acessar ambiente virtual:<br>
 ```sh
 .\.venv\Scripts\activate   
