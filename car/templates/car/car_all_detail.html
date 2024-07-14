@@ -17,11 +17,15 @@
             <div class="col-md-3 mb-4">
                 <div class="card">
                     <!--Imagem de cada carro-->
+                    {% if single_car.image %}
+                    <img src="{{ single_car.image.url }}" alt="{{ single_car.car_name }}"  width="246" height="150">
+                    {% else %}
+                    <img src="{'default_image.jpg'}" alt="Imagem Padrão"  width="246" height="150">
+                    {% endif %}
+                        
                     
-                   
-                    <img src="{{ single_car.image.url }}"  width="246" height="150">
-                
-                 
+                    <!--<img src="{{ single_car.image.url }}"  width="246" height="150">
+                    -->
                     <div class="card-body">
                         <h5 class="card-title">{{ single_car.car_name }}</h5>
                         <p class="card-text">Marca: {{ single_car.brand }}</p>

@@ -48,7 +48,8 @@ def car_update(request, id):
     if form.is_valid():
         form.save()
         return redirect('car_list')
-
+    
+   
     return render(request, 'car/car_form.html', {'form': form, 'car': car})
     
     
@@ -75,6 +76,7 @@ def car_detail(request, id):
 #View para Exibir toda lista de carros
 def car_all_detail(request):
     car = Car.objects.all()
+
     return render(request, 'car/car_all_detail.html', {'car': car})
 
 

@@ -9,7 +9,8 @@ class Car(models.Model):
         ('vendido', 'Vendido'),
     )
 
-    image = models.ImageField(upload_to='cars/', null=True, blank=True)
+    #image = models.ImageField(upload_to='cars/', null=True, blank=True)
+    image = models.ImageField(upload_to='cars/', blank=True, null=True, default='default_image.jpg')
 
     owner_name = models.CharField(max_length=255)
     whatsapp = models.CharField(max_length=20)
