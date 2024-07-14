@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <!--importar o css -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
+{% endblock %}
 
 {% block 'body' %}
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md d-flex justify-content-center">
@@ -9,7 +14,7 @@
                     <br>
                     <br>
                     <section class="cont-logo">
-                        <img class="logo" src="#">
+                        <img class="logo" src="{% static 'geral/img/logo.png' %}">
                         <label class="text-logo">LavrasCAR</label>
                     </section>
                     <hr>
@@ -18,10 +23,10 @@
                         <h2 class="fonte-destaque1">Cadastre-se</h2>
                         <br>
                         <label for="">Username</label>
-                        <input type="text" name="username" id="" class="form-control" placeholder="Username ...">
+                        <input type="text" name="username" id="" class="form-control" placeholder="Nome de usuário">
                         <br>
                         <label for="">E-mail</label>
-                        <input type="text" name="email" id="" placeholder="email@email.com" class="form-control">
+                        <input type="text" name="email" id="" placeholder="seuemail@.com" class="form-control">
                         <br>
                         <div class="row">
                             <div class="col-md">
@@ -42,7 +47,7 @@
 
             </div>
             <div class="col-md bg-main d-flex justify-content-center align-items-center">
-                <img src="#" alt="">
+                <img src="{% static 'usuarios/img/ilustracao.png' %}" alt="">
 
 
             </div>
