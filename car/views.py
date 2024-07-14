@@ -19,7 +19,7 @@ def car_new(request):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('car_list')
+            return redirect('/car')
     else:
         form = CarForm()
     return render(request, 'car/car_form.html', {'form': form})
@@ -31,30 +31,25 @@ def cadastrar_carro_sem_status(request):
         form = CarFormWithoutStatus(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('car_list')
+            return redirect('/car')
     else:
         form = CarFormWithoutStatus()
     return render(request, 'car/car_form_semstatus.html', {'form': form})
 
 #Atualizar carro por id
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Car
-from .forms import CarForm
 
-
-#Atualizar Carro
 def car_update(request, id):
     car = Car.objects.get(id=id)
     form = CarForm(request.POST or None, instance=car)
 
     if form.is_valid():
         form.save()
-        return redirect('car_list')
+        return redirect('/car')
     
     if request.method == "GET":
        return render(request, 'car/car_form.html', {'form': form, 'car': car})
     elif request.method == "POST":
-       return HttpResponse('Veículo Atualizado com Sucesso!')
+        return HttpResponse('Veículo Atualizado com Sucesso!')
     
     #return render(request, 'car/car_form.html', {'form': form, 'car': car})
     
@@ -69,7 +64,7 @@ def car_delete(request, id):
 
     if request.method == 'POST':
         car.delete()
-        return redirect('car_list')
+        return redirect('/car')
 
     return render(request, 'car/car_delete_confirm.html', {'car': car})
 
