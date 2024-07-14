@@ -1,0 +1,50 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<!--configuracao para real ponto e virgula , e settings-->
+{% load l10n %}
+<!--carrega pasta static-->
+{% load static %}
+
+
+<!--importar o css-->
+<link rel="stylesheet" href="{% static 'car/css/styles.css' %}">
+
+<div class="container mt-5">
+    <div class="row">
+
+        {% for single_car in car %}
+        <!--for para percorrer a lista dos carros cadastrados-->
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <!--Imagem de cada carro-->
+                    {% if single_car.image %}
+                    <img src="{{ single_car.image.url }}" alt="{{ single_car.car_name }}"  width="246" height="150">
+                    {% else %}
+                    <img src="{'default_image.jpg'}" alt="Imagem Padrão"  width="246" height="150">
+                    {% endif %}
+                        
+                    
+                    <!--<img src="{{ single_car.image.url }}"  width="246" height="150">
+                    -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ single_car.car_name }}</h5>
+                        <p class="card-text">Marca: {{ single_car.brand }}</p>
+                       
+                        
+                        <!--botao ver detalhes carro-->
+                        <a href="/car/detailvenda/{{ single_car.id }}" class="btn btn-danger btn-detail">Ver Detalhes</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

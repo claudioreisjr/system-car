@@ -23,6 +23,16 @@ urlpatterns = [
     #detalhes de todos carros
     #path('detailall/', views.car_all_detail, name='car_all_detail'),
     path('', views.car_all_detail, name='car_all_detail'),
+  
+    #veiculos vendidos tabela Car
+    path('vendidos/', views.vendidos_list, name='vendidos_list'),
+
+    #detalhes de um veiculo vendido por id (nova pagina)
+    path('detailvenda/<int:id>', views.car_detail_vendido, name='car_detail_vendido'),
+
+    #veiculos vendidos outra tabela 
+    path('vendidos2/', views.vendidos2_list, name='vendidos2_list'),
+
 
 
 ] 

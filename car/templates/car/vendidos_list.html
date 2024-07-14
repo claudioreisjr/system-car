@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+<h2>Carros Vendidos</h2>
+{% for vendido in vendidos %}
+<div>
+    <h3>{{ vendido.car.car_name }}</h3>
+    <p><strong>Marca:</strong> {{ vendido.car.brand }}</p>
+    <p><strong>Status:</strong> {{ vendido.status }}</p>
+    {% if vendido.imagem %}
+        <img src="{{ vendido.imagem.url }}" alt="{{ vendido.car.car_name }}">
+    {% endif %}
+    <a href="{% url 'vendido_detail' vendido.id %}">Detalhes</a>
+</div>
+{% empty %}
+<p>Nenhum carro vendido encontrado.</p>
+{% endfor %}
+
+{% endblock %}

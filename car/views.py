@@ -3,6 +3,8 @@ from .models import Car
 from .forms import CarForm, CarFormWithoutStatus
 from django.http import HttpResponse
 
+from .models import Vendidos
+
 # Create your views here.
 #def home(request):
     #return render(request, "car/home.html" )
@@ -72,12 +74,23 @@ def car_detail(request, id):
     car = Car.objects.get(id=id)
     return render(request, 'car/car_detail.html', {'car': car})
 
+#Ver detalhes de cada carro Vendido por ID
+def car_detail_vendido(request, id):
+    car = Car.objects.get(id=id)
+    return render(request, 'car/car_detail_vendido.html', {'car': car})
 
 #View para Exibir toda lista de carros
 def car_all_detail(request):
     car = Car.objects.all()
-
     return render(request, 'car/car_all_detail.html', {'car': car})
 
 
+#View para Exibir Veiculos da tabela Car
+def vendidos_list(request):
+    vendidos = Car.objects.filter(status='vendido')
+    return render(request, 'car/vendidos_car.html', {'car': vendidos})
 
+#View para Exibir Veiculos Vendidos (outra tabela)
+def vendidos2_list(request):
+    vendidos = Vendidos.objects.filter(status='Vendido')
+    return render(request, 'car/vendidos_list.html', {'vendidos': vendidos})

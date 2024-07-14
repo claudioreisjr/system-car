@@ -1,6 +1,8 @@
 from django import forms
 from .models import Car
 
+
+
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
@@ -57,3 +59,6 @@ class CarFormWithoutStatus(forms.ModelForm):
             'license_plate': 'Placa',
             'location': 'Localização',
         }
+
+#formulario para Veiculos Vendidos
+
