@@ -5,7 +5,7 @@ from django.db import models
 
 class Car(models.Model):
     STATUS_CHOICES = (
-        ('ativo', 'Ativo'),
+        ('ativo', 'Disponível'),
         ('vendido', 'Vendido'),
     )
 
