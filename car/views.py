@@ -51,8 +51,12 @@ def car_update(request, id):
         form.save()
         return redirect('car_list')
     
-   
-    return render(request, 'car/car_form.html', {'form': form, 'car': car})
+    if request.method == "GET":
+       return render(request, 'car/car_form.html', {'form': form, 'car': car})
+    elif request.method == "POST":
+       return HttpResponse('Veículo Atualizado com Sucesso!')
+    
+    #return render(request, 'car/car_form.html', {'form': form, 'car': car})
     
     
     #return render(request, 'car/car_update.html', {'form': form, 'car': car})
