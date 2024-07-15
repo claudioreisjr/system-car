@@ -61,7 +61,11 @@ def login_view(request):
 
         if user: #se existe redireciona pra pagina de cadastrar um veiculo
             auth.login(request, user)  #funcao login requisicao 
-            return redirect('/car/newcar/')
+            #return redirect('/car/newcar/')
+            if user.username == 'admin':
+                return redirect('/car/detailall/')
+            else:
+                return redirect('/car/newcar/')
 
         messages.add_message(request, constants.ERROR, 'Usuário ou senha incorretos')
         return redirect('/usuarios/login')
