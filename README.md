@@ -18,11 +18,6 @@ python manage.py runserver
 ```
 # Estrutura do Projeto SYSTEM-CAR
 
-## Estrutura de Diretórios
-
-
-## Descrição dos Diretórios e Arquivos
-
 ### `car`
 Este diretório inclui todos os templates e arquivos relacionados às funcionalidades gerais do sistema.
 
