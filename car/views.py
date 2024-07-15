@@ -14,7 +14,12 @@ from .models import Vendidos
     #return render(request, "car/home.html" )
 
 #Lista carros p/ admin
+@login_required
 def car_list(request):
+    #somente ADMIN vai ter acesso a essa pagina
+    if request.user.username != 'admin':
+        return redirect('/car')  # Redireciona se o usuário não for 'admin'
+    
     cars = Car.objects.all()
     return render(request, 'car/car_list.html', {'cars': cars})
 #Cadastro completo p/ admin com status

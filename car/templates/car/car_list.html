@@ -1,6 +1,12 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
+<!--Autenticacao somente para Admin nessa pagina para PUT e DELETE HTTP-->
+{% if user.is_authenticated %}
+  {% if user.username == 'admin' %}
+  <h3>Bem Vindo, {{ user.username }}!</h3>
+    <h5>Altere os dados do Veículo, marque como Vendido, ou exclua.</h5>
+  
   <h2>Lista de Carros</h2>
   <a href="{% url 'car:car_new' %}" class="btn btn-primary mb-3">Novo Carro</a>
   <div class="table-responsive">
@@ -40,4 +46,10 @@
       </tbody>
     </table>
   </div>
+  {% else %}
+  <p>Você não tem permissão para acessar esta página.</p>
+{% endif %}
+{% else %}
+<p>Você precisa estar logado para acessar esta página. <a href="{% url 'login' %}">Faça login aqui</a>.</p>
+{% endif %}
 {% endblock %}
