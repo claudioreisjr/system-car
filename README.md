@@ -16,28 +16,31 @@ Rodar servidor:<br>
 ```sh
 python manage.py runserver
 ```
-### Estrutura:<br>
-APP car<br>
-APP usuarios<br>
-car inclui todos templates de telas do sistema em geral<br>
-usuarios inclui somente templates de Cadastro e Login<br>
+# Estrutura do Projeto SYSTEM-CAR
 
-SYTEM-CAR<br>
- -car<br>
-    -templates<br>
-        paginas do sistema em geral<br>
-  forms.py<br>
-  urls.py<br>
-  models.py<br>
-  views.py<br>
+## Estrutura de Diretórios
 
- -usuarios<br>
-    -templates<br>
-        -cadastro.html
-        -login.html
-    urls.py<br>
-    models.py<br>
-    views.py<br>
+
+## Descrição dos Diretórios e Arquivos
+
+### `car`
+Este diretório inclui todos os templates e arquivos relacionados às funcionalidades gerais do sistema.
+
+- **templates/paginas do sistema em geral**: Contém os templates HTML para as páginas gerais do sistema.
+- **forms.py**: Define os formulários utilizados no aplicativo `car`.
+- **urls.py**: Configura as URLs específicas do aplicativo `car`.
+- **models.py**: Define os modelos de dados do aplicativo `car`.
+- **views.py**: Contém as views que controlam as funcionalidades e a lógica de apresentação das páginas do aplicativo `car`.
+
+### `usuarios`
+Este diretório inclui os templates e arquivos relacionados ao cadastro e login de usuários.
+
+- **templates/cadastro.html**: Template HTML para a página de cadastro de usuários.
+- **templates/login.html**: Template HTML para a página de login de usuários.
+- **urls.py**: Configura as URLs específicas do aplicativo `usuarios`.
+- **models.py**: Define os modelos de dados do aplicativo `usuarios`.
+- **views.py**: Contém as views que controlam as funcionalidades e a lógica de apresentação das páginas de cadastro e login de usuários.
+
 
 ## Parte Administrativa e do Usuário:<br>
 ### Admin:<br>
